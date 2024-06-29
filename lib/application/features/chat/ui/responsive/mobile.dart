@@ -1,6 +1,7 @@
-import 'package:chat_app_ai/application/features/auth/signIn/ui/sign_in.dart';
+import 'package:chat_app_ai/application/features/chat/ui/responsive/desktop.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class HomeMobPage extends StatelessWidget {
   const HomeMobPage({super.key});
@@ -9,24 +10,27 @@ class HomeMobPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber[100],
-      appBar: AppBar(),
-      drawer: const Drawer(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text("Home"),
-            ElevatedButton(onPressed: () async{
-              SharedPreferences  sharedPreferences =await SharedPreferences.getInstance();
-
-              sharedPreferences.clear();
-              // ignore: use_build_context_synchronously
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const SignIn(),), (route) => false);
-
-            }, child: const Text("LogOut")),
-          ],
-        ),
+      appBar: AppBar(
+        centerTitle: true,
+        title:  Text("CHATY",style: GoogleFonts.anton(
+          textStyle: const TextStyle(
+            letterSpacing: 1.5,
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+            color: Colors.black,
+          )
+        ),),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: CircleAvatar(),
+          )
+        ],
       ),
+      drawer: const Drawer(
+        child: ModelDrowerDesk(),
+      ),
+      body:const ChatBoxHome(),
     );
   }
 }

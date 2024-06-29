@@ -3,6 +3,8 @@ import 'package:chat_app_ai/application/features/auth/signUp/bloc/signup_bloc.da
 import 'package:chat_app_ai/application/features/auth/splash/bloc/bloc/splash_bloc.dart';
 import 'package:chat_app_ai/application/features/chat/bloc/bloc/home_bloc.dart';
 import 'package:chat_app_ai/application/features/chat/ui/home.dart';
+import 'package:chat_app_ai/application/features/chat/ui/responsive/desktop.dart';
+import 'package:chat_app_ai/application/features/chat/ui/responsive/mobile.dart';
 import 'package:chat_app_ai/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,7 +31,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => HomeBloc()),
       ],
       child: const MaterialApp(
-        home: Home(),
+        debugShowCheckedModeBanner: false,
+        home: HomeDeskPage(expandedWidth: 5),
       ),
     );
   }

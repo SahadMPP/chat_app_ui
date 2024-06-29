@@ -44,99 +44,117 @@ class HomeDeskPage extends StatelessWidget {
                               ],
                             ),
                           )),
-                          Expanded(
+                          const Expanded(
                             flex: 12,
-                            child: Container(
-                              color: Colors.grey[400],
-                              child: Column(
-                                children: [
-                                  Expanded(child: ListView(
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.all(12),
-                                        margin: const EdgeInsets.all(8),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(8)
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            const Icon(Icons.person),
-                                            const SizedBox(width: 5)
-,                                            Text('helooo hude',style: GoogleFonts.roboto(
-                                             textStyle: const TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 12,
-                                             )
-                                            ),),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        padding: const EdgeInsets.all(12),
-                                        margin: const EdgeInsets.all(8),
-                                        decoration: BoxDecoration(
-                                          color: const Color.fromARGB(255, 45, 0, 170).withOpacity(.9),
-                                          borderRadius: BorderRadius.circular(8)
-                                        ),
-                                        child: Text('helooo hude',style: GoogleFonts.aBeeZee(
-                                         textStyle: const TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                         )
-                                        ),),
-                                      ),
-                                      
-                                    ],
-                                  )),
-                                  Container(
-                                    margin: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(5)),
-                                    height: 50,
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                            child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 10),
-                                          child: TextField(
-                                            decoration: InputDecoration(
-                                                hintText:
-                                                    'Enter your Prompt here',
-                                                hintStyle: GoogleFonts.aBeeZee(
-                                                    textStyle: const TextStyle(
-                                                  color: Colors.grey,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 12,
-                                                ))),
-                                          ),
-                                        )),
-                                        InkWell(
-                                            onTap: () {},
-                                            child: const Padding(
-                                              padding: EdgeInsets.all(8.0),
-                                              child: Icon(
-                                                Icons.send_outlined,
-                                                color: Color.fromARGB(
-                                                    255, 130, 61, 221),
-                                                size: 20,
-                                              ),
-                                            ))
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
+                            child: ChatBoxHome(),
                           ),
                         ],
                       )),
                 ],
               )),
+        ],
+      ),
+    );
+  }
+}
+
+class ChatBoxHome extends StatelessWidget {
+  const ChatBoxHome({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.grey[400],
+      child: Column(
+        children: [
+          Expanded(child: ListView(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                margin: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8)
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.person),
+                    const SizedBox(width: 5)
+    ,                                            Text('helooo hude',style: GoogleFonts.roboto(
+                     textStyle: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                     )
+                    ),),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(12),
+                margin: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 45, 0, 170).withOpacity(.9),
+                  borderRadius: BorderRadius.circular(8)
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.radio_button_checked_outlined),
+                    const SizedBox(width: 5),
+                    Text('helooo hude',style: GoogleFonts.aBeeZee(
+                     textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                     )
+                    ),),
+                  ],
+                ),
+              ),
+              
+            ],
+          )),
+          Container(
+            margin: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5)),
+            height: 50,
+            child: Row(
+              children: [
+                Expanded(
+                    child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 10),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                        hintText:
+                            'Enter your Prompt here',
+                        hintStyle: GoogleFonts.aBeeZee(
+                            textStyle: const TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                        ))),
+                  ),
+                )),
+                InkWell(
+                    onTap: () {},
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Icon(
+                        Icons.send_outlined,
+                        color: Color.fromARGB(
+                            255, 130, 61, 221),
+                        size: 20,
+                      ),
+                    ))
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -264,39 +282,25 @@ class ModelDrowerDesk extends StatelessWidget {
       color: Colors.black,
       child: Column(
         children: [
-          SizedBox(
-            height: 50,
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  "Models",
-                  style: GoogleFonts.archivo(
-                      textStyle: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 20,
-                  )),
-                ),
-                InkWell(
-                    onTap: () {
-                      context
-                          .read<HomeBloc>()
-                          .add(const HomeEvent.deskTopDrower());
-                    },
-                    child: const Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Colors.white,
-                      size: 20,
-                    ))
-              ],
+          Padding(
+            padding: const EdgeInsets.only(top: 30,left: 30),
+            child: SizedBox(
+              height: 50,
+              width: double.infinity,
+              child: Text(
+                "Models",
+                style: GoogleFonts.archivo(
+                    textStyle: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 20,
+                )),
+              ),
             ),
           ),
           Expanded(
-              child: ListView(
-            children: [
-              Container(
+              child: ListView.builder(itemBuilder: (context, index) {
+                return  Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
@@ -321,45 +325,22 @@ class ModelDrowerDesk extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(5)),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.messenger_outline_rounded,
-                      color: Colors.white,
-                      size: 18,
-                    ),
-                    const SizedBox(width: 5),
-                    Text(
-                      "AI Teacher",
-                      style: GoogleFonts.aBeeZee(
-                          textStyle: const TextStyle(
-                        fontSize: 9,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      )),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          )),
+              );
+              },)),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 10),
             child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: const WidgetStatePropertyAll(
                         Color.fromARGB(255, 45, 0, 170)),
                     shape: WidgetStatePropertyAll(ContinuousRectangleBorder(
                         borderRadius: BorderRadius.circular(8)))),
-                onPressed: () {},
+                onPressed: () {
+                  // add value to list
+                  
+                },
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Icon(
                       Icons.add,
@@ -409,19 +390,10 @@ class HomeHeader extends StatelessWidget {
                 fontSize: 20,
               )),
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Chip(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12))),
-                  backgroundColor: Colors.white,
-                  padding: EdgeInsets.all(12),
-                  label: Icon(
-                    Icons.person_pin,
-                    color: Colors.black,
-                    size: 30,
-                  )),
-            )
+            const CircleAvatar(
+              radius: 18,
+              backgroundColor: Colors.blue,
+            ),
           ],
         ),
       ),

@@ -19,32 +19,38 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() deskTopDrower,
+    required TResult Function(BuildContext context) logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? deskTopDrower,
+    TResult? Function(BuildContext context)? logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? deskTopDrower,
+    TResult Function(BuildContext context)? logOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_deskTopDrower value) deskTopDrower,
+    required TResult Function(_logOut value) logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_deskTopDrower value)? deskTopDrower,
+    TResult? Function(_logOut value)? logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_deskTopDrower value)? deskTopDrower,
+    TResult Function(_logOut value)? logOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +112,7 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() deskTopDrower,
+    required TResult Function(BuildContext context) logOut,
   }) {
     return deskTopDrower();
   }
@@ -114,6 +121,7 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? deskTopDrower,
+    TResult? Function(BuildContext context)? logOut,
   }) {
     return deskTopDrower?.call();
   }
@@ -122,6 +130,7 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? deskTopDrower,
+    TResult Function(BuildContext context)? logOut,
     required TResult orElse(),
   }) {
     if (deskTopDrower != null) {
@@ -134,6 +143,7 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_deskTopDrower value) deskTopDrower,
+    required TResult Function(_logOut value) logOut,
   }) {
     return deskTopDrower(this);
   }
@@ -142,6 +152,7 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_deskTopDrower value)? deskTopDrower,
+    TResult? Function(_logOut value)? logOut,
   }) {
     return deskTopDrower?.call(this);
   }
@@ -150,6 +161,7 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_deskTopDrower value)? deskTopDrower,
+    TResult Function(_logOut value)? logOut,
     required TResult orElse(),
   }) {
     if (deskTopDrower != null) {
@@ -161,6 +173,139 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
 
 abstract class _deskTopDrower implements HomeEvent {
   const factory _deskTopDrower() = _$deskTopDrowerImpl;
+}
+
+/// @nodoc
+abstract class _$$logOutImplCopyWith<$Res> {
+  factory _$$logOutImplCopyWith(
+          _$logOutImpl value, $Res Function(_$logOutImpl) then) =
+      __$$logOutImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$logOutImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$logOutImpl>
+    implements _$$logOutImplCopyWith<$Res> {
+  __$$logOutImplCopyWithImpl(
+      _$logOutImpl _value, $Res Function(_$logOutImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$logOutImpl(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$logOutImpl implements _logOut {
+  const _$logOutImpl({required this.context});
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'HomeEvent.logOut(context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$logOutImpl &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$logOutImplCopyWith<_$logOutImpl> get copyWith =>
+      __$$logOutImplCopyWithImpl<_$logOutImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() deskTopDrower,
+    required TResult Function(BuildContext context) logOut,
+  }) {
+    return logOut(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? deskTopDrower,
+    TResult? Function(BuildContext context)? logOut,
+  }) {
+    return logOut?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? deskTopDrower,
+    TResult Function(BuildContext context)? logOut,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_deskTopDrower value) deskTopDrower,
+    required TResult Function(_logOut value) logOut,
+  }) {
+    return logOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_deskTopDrower value)? deskTopDrower,
+    TResult? Function(_logOut value)? logOut,
+  }) {
+    return logOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_deskTopDrower value)? deskTopDrower,
+    TResult Function(_logOut value)? logOut,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _logOut implements HomeEvent {
+  const factory _logOut({required final BuildContext context}) = _$logOutImpl;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$logOutImplCopyWith<_$logOutImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
