@@ -1,6 +1,8 @@
+import 'package:chat_app_ai/application/features/auth/signIn/bloc/signin_bloc.dart';
 import 'package:chat_app_ai/application/features/auth/widgets/custom_login_button.dart';
 import 'package:chat_app_ai/application/features/auth/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignINMobPage extends StatelessWidget {
@@ -44,7 +46,8 @@ class SignINMobPage extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               const CostomTextField(hintText: "Enter Email", isPassword: false),
-              const CostomTextField(hintText: "Enter Password", isPassword: true),
+              const CostomTextField(
+                  hintText: "Enter Password", isPassword: true),
               const SizedBox(height: 10),
               Align(
                 alignment: Alignment.centerLeft,
@@ -59,7 +62,13 @@ class SignINMobPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-               CustomButton(text: "Sign In", fun: (){}),
+              CustomButton(
+                  text: "Sign In",
+                  fun: () {
+                    context
+                        .read<SigninBloc>()
+                        .add(SigninEvent.homePageNavigation(context: context));
+                  }),
               const SizedBox(height: 100),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +84,10 @@ class SignINMobPage extends StatelessWidget {
                   ),
                   const SizedBox(width: 5),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context.read<SigninBloc>().add(
+                          SigninEvent.signUpPageNavigation(context: context));
+                    },
                     child: Text(
                       'Request Now',
                       style: GoogleFonts.aBeeZee(

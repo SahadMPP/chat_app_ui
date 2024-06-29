@@ -1,6 +1,8 @@
+import 'package:chat_app_ai/application/features/auth/signUp/bloc/signup_bloc.dart';
 import 'package:chat_app_ai/application/features/auth/widgets/custom_login_button.dart';
 import 'package:chat_app_ai/application/features/auth/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUpMobPage extends StatelessWidget {
@@ -63,7 +65,9 @@ class SignUpMobPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              CustomButton(text: "Sign Up", fun: () {}),
+              CustomButton(text: "Sign Up", fun: () {
+                      context.read<SignupBloc>().add(SignupEvent.registerUser(context: context));
+              }),
               const SizedBox(height: 100),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +83,9 @@ class SignUpMobPage extends StatelessWidget {
                   ),
                   const SizedBox(width: 5),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context.read<SignupBloc>().add(SignupEvent.navigatingToSignIn(context: context));
+                    },
                     child: Text(
                       'Sign in',
                       style: GoogleFonts.aBeeZee(

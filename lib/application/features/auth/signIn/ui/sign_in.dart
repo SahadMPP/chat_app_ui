@@ -1,24 +1,20 @@
-// import 'package:chat_app_ai/application/core/responsive/responsive_main.dart';
-// import 'package:flutter/material.dart';
+import 'package:chat_app_ai/application/core/responsive/responsive_main.dart';
+import 'package:chat_app_ai/application/features/auth/signIn/ui/responsive/mobile.dart';
+import 'package:chat_app_ai/application/features/auth/signIn/ui/responsive/tablet.dart';
+import 'package:flutter/material.dart';
 
 
-// class SignIn extends StatefulWidget {
-//   final String directiontext;
+class SignIn extends StatelessWidget {
 
-//   const SignIn({super.key, required this.directiontext});
+  const SignIn({super.key});
 
-//   @override
-//   State<SignIn> createState() => _SignInState();
-// }
-
-// class _SignInState extends State<SignIn> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return  Scaffold(
-//       body: ResponsiveLayOut(
-//           mobileScaffold: SignMobLayOut(directiontext: widget.directiontext),
-//           tabletScaffold: SignTebLayOut(directiontext: widget.directiontext),
-//           desktopScaffold: SignDeskLayOut(directiontext: widget.directiontext)),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return  const Scaffold(
+      body: ResponsiveLayOut(
+          mobileScaffold: SignINMobPage(),
+          tabletScaffold: SignInTebPage(),
+          desktopScaffold: SignInTebPage()),
+    );
+  }
+}

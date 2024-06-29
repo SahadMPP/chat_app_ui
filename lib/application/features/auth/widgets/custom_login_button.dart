@@ -5,7 +5,9 @@ class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback fun;
   const CustomButton({
-    super.key, required this.text, required this.fun,
+    super.key,
+    required this.text,
+    required this.fun,
   });
 
   @override
@@ -14,13 +16,12 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       height: 50,
       child: ElevatedButton(
-          style:  ButtonStyle(
+          style: ButtonStyle(
               shape: const WidgetStatePropertyAll(ContinuousRectangleBorder(
-                  borderRadius:
-                      BorderRadius.all(Radius.circular(12)))),
+                  borderRadius: BorderRadius.all(Radius.circular(12)))),
               backgroundColor: WidgetStatePropertyAll(
                   const Color.fromARGB(255, 255, 192, 141).withOpacity(.7))),
-          onPressed:fun,
+          onPressed: fun,
           child: Text(
             text,
             style: GoogleFonts.aBeeZee(
