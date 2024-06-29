@@ -10,6 +10,8 @@ class SignINMobPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController namecontroller = TextEditingController();
+    TextEditingController passwordcontroller = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -45,9 +47,17 @@ class SignINMobPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              const CostomTextField(hintText: "Enter Email", isPassword: false),
-              const CostomTextField(
-                  hintText: "Enter Password", isPassword: true),
+              CostomTextField(
+                hintText: "Enter Email",
+                isPassword: false,
+                controller: namecontroller,
+                validatorText: 'Password is empty',
+              ),
+              CostomTextField(
+                  controller: passwordcontroller,
+                  validatorText: 'Password is empty',
+                  hintText: "Enter Password",
+                  isPassword: true),
               const SizedBox(height: 10),
               Align(
                 alignment: Alignment.centerLeft,
@@ -67,7 +77,7 @@ class SignINMobPage extends StatelessWidget {
                   fun: () {
                     context
                         .read<SigninBloc>()
-                        .add(SigninEvent.homePageNavigation(context: context));
+                        .add(SigninEvent.homePageNavigation(context: context,email: namecontroller.text,password: passwordcontroller.text));
                   }),
               const SizedBox(height: 100),
               Row(

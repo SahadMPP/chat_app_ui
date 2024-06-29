@@ -19,19 +19,23 @@ mixin _$SigninEvent {
   BuildContext get context => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) homePageNavigation,
+    required TResult Function(
+            BuildContext context, String email, String password)
+        homePageNavigation,
     required TResult Function(BuildContext context) signUpPageNavigation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? homePageNavigation,
+    TResult? Function(BuildContext context, String email, String password)?
+        homePageNavigation,
     TResult? Function(BuildContext context)? signUpPageNavigation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? homePageNavigation,
+    TResult Function(BuildContext context, String email, String password)?
+        homePageNavigation,
     TResult Function(BuildContext context)? signUpPageNavigation,
     required TResult orElse(),
   }) =>
@@ -102,7 +106,7 @@ abstract class _$$homePageNavigationImplCopyWith<$Res>
       __$$homePageNavigationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BuildContext context});
+  $Res call({BuildContext context, String email, String password});
 }
 
 /// @nodoc
@@ -117,12 +121,22 @@ class __$$homePageNavigationImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? context = null,
+    Object? email = null,
+    Object? password = null,
   }) {
     return _then(_$homePageNavigationImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
               as BuildContext,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -130,14 +144,19 @@ class __$$homePageNavigationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$homePageNavigationImpl implements _homePageNavigation {
-  const _$homePageNavigationImpl({required this.context});
+  const _$homePageNavigationImpl(
+      {required this.context, required this.email, required this.password});
 
   @override
   final BuildContext context;
+  @override
+  final String email;
+  @override
+  final String password;
 
   @override
   String toString() {
-    return 'SigninEvent.homePageNavigation(context: $context)';
+    return 'SigninEvent.homePageNavigation(context: $context, email: $email, password: $password)';
   }
 
   @override
@@ -145,11 +164,14 @@ class _$homePageNavigationImpl implements _homePageNavigation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$homePageNavigationImpl &&
-            (identical(other.context, context) || other.context == context));
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, context);
+  int get hashCode => Object.hash(runtimeType, context, email, password);
 
   @JsonKey(ignore: true)
   @override
@@ -161,30 +183,34 @@ class _$homePageNavigationImpl implements _homePageNavigation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) homePageNavigation,
+    required TResult Function(
+            BuildContext context, String email, String password)
+        homePageNavigation,
     required TResult Function(BuildContext context) signUpPageNavigation,
   }) {
-    return homePageNavigation(context);
+    return homePageNavigation(context, email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? homePageNavigation,
+    TResult? Function(BuildContext context, String email, String password)?
+        homePageNavigation,
     TResult? Function(BuildContext context)? signUpPageNavigation,
   }) {
-    return homePageNavigation?.call(context);
+    return homePageNavigation?.call(context, email, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? homePageNavigation,
+    TResult Function(BuildContext context, String email, String password)?
+        homePageNavigation,
     TResult Function(BuildContext context)? signUpPageNavigation,
     required TResult orElse(),
   }) {
     if (homePageNavigation != null) {
-      return homePageNavigation(context);
+      return homePageNavigation(context, email, password);
     }
     return orElse();
   }
@@ -222,11 +248,15 @@ class _$homePageNavigationImpl implements _homePageNavigation {
 }
 
 abstract class _homePageNavigation implements SigninEvent {
-  const factory _homePageNavigation({required final BuildContext context}) =
-      _$homePageNavigationImpl;
+  const factory _homePageNavigation(
+      {required final BuildContext context,
+      required final String email,
+      required final String password}) = _$homePageNavigationImpl;
 
   @override
   BuildContext get context;
+  String get email;
+  String get password;
   @override
   @JsonKey(ignore: true)
   _$$homePageNavigationImplCopyWith<_$homePageNavigationImpl> get copyWith =>
@@ -301,7 +331,9 @@ class _$signUpPageNavigationImpl implements _signUpPageNavigation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) homePageNavigation,
+    required TResult Function(
+            BuildContext context, String email, String password)
+        homePageNavigation,
     required TResult Function(BuildContext context) signUpPageNavigation,
   }) {
     return signUpPageNavigation(context);
@@ -310,7 +342,8 @@ class _$signUpPageNavigationImpl implements _signUpPageNavigation {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? homePageNavigation,
+    TResult? Function(BuildContext context, String email, String password)?
+        homePageNavigation,
     TResult? Function(BuildContext context)? signUpPageNavigation,
   }) {
     return signUpPageNavigation?.call(context);
@@ -319,7 +352,8 @@ class _$signUpPageNavigationImpl implements _signUpPageNavigation {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? homePageNavigation,
+    TResult Function(BuildContext context, String email, String password)?
+        homePageNavigation,
     TResult Function(BuildContext context)? signUpPageNavigation,
     required TResult orElse(),
   }) {

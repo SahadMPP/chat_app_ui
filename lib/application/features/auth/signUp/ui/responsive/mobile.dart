@@ -5,8 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignUpMobPage extends StatelessWidget {
+class SignUpMobPage extends StatefulWidget {
   const SignUpMobPage({super.key});
+
+  @override
+  State<SignUpMobPage> createState() => _SignUpMobPageState();
+}
+
+class _SignUpMobPageState extends State<SignUpMobPage> {
+  TextEditingController passwordConformationCon = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+
+  GlobalKey<FormState> fromKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +57,33 @@ class SignUpMobPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              const CostomTextField(hintText: "Enter Name", isPassword: false),
-              const CostomTextField(hintText: "Enter Email", isPassword: false),
-              const CostomTextField(
-                  hintText: "Enter Password", isPassword: true),
-              const CostomTextField(
-                  hintText: "Conform Password", isPassword: true),
+              Form(
+                key: fromKey,
+                child: Column(
+                  children: [
+                    CostomTextField(
+                        validatorText: 'Enter your name',
+                        controller: namecontroller,
+                        hintText: "Enter Name",
+                        isPassword: false),
+                    CostomTextField(
+                        validatorText: 'Enter your email',
+                        controller: emailcontroller,
+                        hintText: "Enter Email",
+                        isPassword: false),
+                    CostomTextField(
+                        validatorText: 'Enter your password',
+                        controller: passwordcontroller,
+                        hintText: "Enter Password",
+                        isPassword: true),
+                    CostomTextField(
+                        validatorText: 'Field is empty',
+                        controller: passwordConformationCon,
+                        hintText: "Conform Password",
+                        isPassword: true),
+                  ],
+                ),
+              ),
               const SizedBox(height: 10),
               Align(
                 alignment: Alignment.centerLeft,
@@ -65,9 +98,31 @@ class SignUpMobPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              CustomButton(text: "Sign Up", fun: () {
-                      context.read<SignupBloc>().add(SignupEvent.registerUser(context: context));
-              }),
+              CustomButton(
+                  text: "Sign Up",
+                  fun: () {
+                    if (fromKey.currentState!.validate()) {
+                      if (passwordConformationCon.text !=
+                          passwordcontroller.text) {
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text(
+                            "conform password does not match",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          backgroundColor: Colors.red,
+                          margin: EdgeInsets.all(8),
+                          behavior: SnackBarBehavior.floating,
+                        ));
+                        return;
+                      }
+                      context.read<SignupBloc>().add(SignupEvent.registerUser(
+                          context: context,
+                          nameConm: namecontroller.text,
+                          emalConm: emailcontroller.text,
+                          passConm: passwordcontroller.text));
+                    }
+                  }),
               const SizedBox(height: 100),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -84,7 +139,8 @@ class SignUpMobPage extends StatelessWidget {
                   const SizedBox(width: 5),
                   InkWell(
                     onTap: () {
-                      context.read<SignupBloc>().add(SignupEvent.navigatingToSignIn(context: context));
+                      context.read<SignupBloc>().add(
+                          SignupEvent.navigatingToSignIn(context: context));
                     },
                     child: Text(
                       'Sign in',
