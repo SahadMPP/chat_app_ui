@@ -10,8 +10,6 @@ class HomeDeskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    
     return Scaffold(
       body: Column(
         children: [
@@ -34,7 +32,7 @@ class HomeDeskPage extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    "What are AL Models",
+                                    "What are AI Models",
                                     style: GoogleFonts.lilitaOne(
                                         textStyle: const TextStyle(
                                       fontWeight: FontWeight.w700,
@@ -68,12 +66,6 @@ class ChatBoxHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
-
-  //   void sendMessage(BuildContext context) {
-  //   final homeCubit = context.read<HomeCubit>();
-  //   homeCubit.sendMessage(controller.text);
-  //   controller.clear();
-  // }
     context.read<HomeBloc>().add(const HomeEvent.connectingToWebsonket());
     return Container(
       color: Colors.grey[400],
@@ -404,29 +396,3 @@ class HomeHeader extends StatelessWidget {
   }
 }
 
-
-
-
-// Container(
-              //   padding: const EdgeInsets.all(12),
-              //   margin: const EdgeInsets.all(8),
-              //   decoration: BoxDecoration(
-              //       color:
-              //           const Color.fromARGB(255, 45, 0, 170).withOpacity(.9),
-              //       borderRadius: BorderRadius.circular(8)),
-              //   child: Row(
-              //     children: [
-              //       const Icon(Icons.radio_button_checked_outlined),
-              //       const SizedBox(width: 5),
-              //       Text(
-              //         'helooo hude',
-              //         style: GoogleFonts.aBeeZee(
-              //             textStyle: const TextStyle(
-              //           color: Colors.white,
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 12,
-              //         )),
-              //       ),
-              //     ],
-              //   ),
-              // ),

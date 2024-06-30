@@ -6,10 +6,9 @@ import 'package:bloc/bloc.dart';
 import 'package:chat_app_ai/application/core/const/const_values.dart';
 import 'package:chat_app_ai/application/features/auth/signUp/ui/sign_up.dart';
 import 'package:chat_app_ai/application/features/chat/ui/home.dart';
-import 'package:chat_app_ai/domain/entities/user_entity.dart';
+import 'package:chat_app_ai/domain/usecase/auth_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hive_flutter/adapters.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'signin_event.dart';
@@ -20,7 +19,8 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
   SigninBloc() : super(const _Initial()) {
     on<_homePageNavigation>((event, emit) async {
       Future<bool> isRegisted() async {
-        final userDB = await Hive.openBox<User>('user_db');
+        final userDB = await AuthUseCase().gettingUsersDatafromDatabase();
+
         for (var i = 0; i < userDB.length; i++) {
           final currentUser = userDB.getAt(i);
           if (currentUser!.email == event.email &&
