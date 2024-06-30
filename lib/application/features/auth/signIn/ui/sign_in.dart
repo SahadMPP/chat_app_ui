@@ -1,6 +1,6 @@
 import 'package:chat_app_ai/application/core/responsive/responsive_main.dart';
+import 'package:chat_app_ai/application/features/auth/signIn/ui/responsive/desktop.dart';
 import 'package:chat_app_ai/application/features/auth/signIn/ui/responsive/mobile.dart';
-import 'package:chat_app_ai/application/features/auth/signIn/ui/responsive/tablet.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,8 +13,8 @@ class SignIn extends StatelessWidget {
     return  const Scaffold(
       body: ResponsiveLayOut(
           mobileScaffold: SignINMobPage(),
-          tabletScaffold: SignInTebPage(),
-          desktopScaffold: SignInTebPage()),
+          tabletScaffold: SignInDeskPage(),
+          desktopScaffold: SignInDeskPage()),
     );
   }
 }

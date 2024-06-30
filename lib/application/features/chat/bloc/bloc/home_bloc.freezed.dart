@@ -20,18 +20,24 @@ mixin _$HomeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() deskTopDrower,
     required TResult Function(BuildContext context) logOut,
+    required TResult Function() connectingToWebsonket,
+    required TResult Function(String text) sentingMassage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? deskTopDrower,
     TResult? Function(BuildContext context)? logOut,
+    TResult? Function()? connectingToWebsonket,
+    TResult? Function(String text)? sentingMassage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? deskTopDrower,
     TResult Function(BuildContext context)? logOut,
+    TResult Function()? connectingToWebsonket,
+    TResult Function(String text)? sentingMassage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,25 @@ mixin _$HomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_deskTopDrower value) deskTopDrower,
     required TResult Function(_logOut value) logOut,
+    required TResult Function(_connectingToWebsonket value)
+        connectingToWebsonket,
+    required TResult Function(_sentingMassage value) sentingMassage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_deskTopDrower value)? deskTopDrower,
     TResult? Function(_logOut value)? logOut,
+    TResult? Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult? Function(_sentingMassage value)? sentingMassage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_deskTopDrower value)? deskTopDrower,
     TResult Function(_logOut value)? logOut,
+    TResult Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult Function(_sentingMassage value)? sentingMassage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +126,8 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   TResult when<TResult extends Object?>({
     required TResult Function() deskTopDrower,
     required TResult Function(BuildContext context) logOut,
+    required TResult Function() connectingToWebsonket,
+    required TResult Function(String text) sentingMassage,
   }) {
     return deskTopDrower();
   }
@@ -122,6 +137,8 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? deskTopDrower,
     TResult? Function(BuildContext context)? logOut,
+    TResult? Function()? connectingToWebsonket,
+    TResult? Function(String text)? sentingMassage,
   }) {
     return deskTopDrower?.call();
   }
@@ -131,6 +148,8 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? deskTopDrower,
     TResult Function(BuildContext context)? logOut,
+    TResult Function()? connectingToWebsonket,
+    TResult Function(String text)? sentingMassage,
     required TResult orElse(),
   }) {
     if (deskTopDrower != null) {
@@ -144,6 +163,9 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   TResult map<TResult extends Object?>({
     required TResult Function(_deskTopDrower value) deskTopDrower,
     required TResult Function(_logOut value) logOut,
+    required TResult Function(_connectingToWebsonket value)
+        connectingToWebsonket,
+    required TResult Function(_sentingMassage value) sentingMassage,
   }) {
     return deskTopDrower(this);
   }
@@ -153,6 +175,8 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_deskTopDrower value)? deskTopDrower,
     TResult? Function(_logOut value)? logOut,
+    TResult? Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult? Function(_sentingMassage value)? sentingMassage,
   }) {
     return deskTopDrower?.call(this);
   }
@@ -162,6 +186,8 @@ class _$deskTopDrowerImpl implements _deskTopDrower {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_deskTopDrower value)? deskTopDrower,
     TResult Function(_logOut value)? logOut,
+    TResult Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult Function(_sentingMassage value)? sentingMassage,
     required TResult orElse(),
   }) {
     if (deskTopDrower != null) {
@@ -241,6 +267,8 @@ class _$logOutImpl implements _logOut {
   TResult when<TResult extends Object?>({
     required TResult Function() deskTopDrower,
     required TResult Function(BuildContext context) logOut,
+    required TResult Function() connectingToWebsonket,
+    required TResult Function(String text) sentingMassage,
   }) {
     return logOut(context);
   }
@@ -250,6 +278,8 @@ class _$logOutImpl implements _logOut {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? deskTopDrower,
     TResult? Function(BuildContext context)? logOut,
+    TResult? Function()? connectingToWebsonket,
+    TResult? Function(String text)? sentingMassage,
   }) {
     return logOut?.call(context);
   }
@@ -259,6 +289,8 @@ class _$logOutImpl implements _logOut {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? deskTopDrower,
     TResult Function(BuildContext context)? logOut,
+    TResult Function()? connectingToWebsonket,
+    TResult Function(String text)? sentingMassage,
     required TResult orElse(),
   }) {
     if (logOut != null) {
@@ -272,6 +304,9 @@ class _$logOutImpl implements _logOut {
   TResult map<TResult extends Object?>({
     required TResult Function(_deskTopDrower value) deskTopDrower,
     required TResult Function(_logOut value) logOut,
+    required TResult Function(_connectingToWebsonket value)
+        connectingToWebsonket,
+    required TResult Function(_sentingMassage value) sentingMassage,
   }) {
     return logOut(this);
   }
@@ -281,6 +316,8 @@ class _$logOutImpl implements _logOut {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_deskTopDrower value)? deskTopDrower,
     TResult? Function(_logOut value)? logOut,
+    TResult? Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult? Function(_sentingMassage value)? sentingMassage,
   }) {
     return logOut?.call(this);
   }
@@ -290,6 +327,8 @@ class _$logOutImpl implements _logOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_deskTopDrower value)? deskTopDrower,
     TResult Function(_logOut value)? logOut,
+    TResult Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult Function(_sentingMassage value)? sentingMassage,
     required TResult orElse(),
   }) {
     if (logOut != null) {
@@ -309,8 +348,275 @@ abstract class _logOut implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$connectingToWebsonketImplCopyWith<$Res> {
+  factory _$$connectingToWebsonketImplCopyWith(
+          _$connectingToWebsonketImpl value,
+          $Res Function(_$connectingToWebsonketImpl) then) =
+      __$$connectingToWebsonketImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$connectingToWebsonketImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$connectingToWebsonketImpl>
+    implements _$$connectingToWebsonketImplCopyWith<$Res> {
+  __$$connectingToWebsonketImplCopyWithImpl(_$connectingToWebsonketImpl _value,
+      $Res Function(_$connectingToWebsonketImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$connectingToWebsonketImpl implements _connectingToWebsonket {
+  const _$connectingToWebsonketImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.connectingToWebsonket()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$connectingToWebsonketImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() deskTopDrower,
+    required TResult Function(BuildContext context) logOut,
+    required TResult Function() connectingToWebsonket,
+    required TResult Function(String text) sentingMassage,
+  }) {
+    return connectingToWebsonket();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? deskTopDrower,
+    TResult? Function(BuildContext context)? logOut,
+    TResult? Function()? connectingToWebsonket,
+    TResult? Function(String text)? sentingMassage,
+  }) {
+    return connectingToWebsonket?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? deskTopDrower,
+    TResult Function(BuildContext context)? logOut,
+    TResult Function()? connectingToWebsonket,
+    TResult Function(String text)? sentingMassage,
+    required TResult orElse(),
+  }) {
+    if (connectingToWebsonket != null) {
+      return connectingToWebsonket();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_deskTopDrower value) deskTopDrower,
+    required TResult Function(_logOut value) logOut,
+    required TResult Function(_connectingToWebsonket value)
+        connectingToWebsonket,
+    required TResult Function(_sentingMassage value) sentingMassage,
+  }) {
+    return connectingToWebsonket(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_deskTopDrower value)? deskTopDrower,
+    TResult? Function(_logOut value)? logOut,
+    TResult? Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult? Function(_sentingMassage value)? sentingMassage,
+  }) {
+    return connectingToWebsonket?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_deskTopDrower value)? deskTopDrower,
+    TResult Function(_logOut value)? logOut,
+    TResult Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult Function(_sentingMassage value)? sentingMassage,
+    required TResult orElse(),
+  }) {
+    if (connectingToWebsonket != null) {
+      return connectingToWebsonket(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _connectingToWebsonket implements HomeEvent {
+  const factory _connectingToWebsonket() = _$connectingToWebsonketImpl;
+}
+
+/// @nodoc
+abstract class _$$sentingMassageImplCopyWith<$Res> {
+  factory _$$sentingMassageImplCopyWith(_$sentingMassageImpl value,
+          $Res Function(_$sentingMassageImpl) then) =
+      __$$sentingMassageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$sentingMassageImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$sentingMassageImpl>
+    implements _$$sentingMassageImplCopyWith<$Res> {
+  __$$sentingMassageImplCopyWithImpl(
+      _$sentingMassageImpl _value, $Res Function(_$sentingMassageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+  }) {
+    return _then(_$sentingMassageImpl(
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$sentingMassageImpl implements _sentingMassage {
+  const _$sentingMassageImpl({required this.text});
+
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'HomeEvent.sentingMassage(text: $text)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$sentingMassageImpl &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$sentingMassageImplCopyWith<_$sentingMassageImpl> get copyWith =>
+      __$$sentingMassageImplCopyWithImpl<_$sentingMassageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() deskTopDrower,
+    required TResult Function(BuildContext context) logOut,
+    required TResult Function() connectingToWebsonket,
+    required TResult Function(String text) sentingMassage,
+  }) {
+    return sentingMassage(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? deskTopDrower,
+    TResult? Function(BuildContext context)? logOut,
+    TResult? Function()? connectingToWebsonket,
+    TResult? Function(String text)? sentingMassage,
+  }) {
+    return sentingMassage?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? deskTopDrower,
+    TResult Function(BuildContext context)? logOut,
+    TResult Function()? connectingToWebsonket,
+    TResult Function(String text)? sentingMassage,
+    required TResult orElse(),
+  }) {
+    if (sentingMassage != null) {
+      return sentingMassage(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_deskTopDrower value) deskTopDrower,
+    required TResult Function(_logOut value) logOut,
+    required TResult Function(_connectingToWebsonket value)
+        connectingToWebsonket,
+    required TResult Function(_sentingMassage value) sentingMassage,
+  }) {
+    return sentingMassage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_deskTopDrower value)? deskTopDrower,
+    TResult? Function(_logOut value)? logOut,
+    TResult? Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult? Function(_sentingMassage value)? sentingMassage,
+  }) {
+    return sentingMassage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_deskTopDrower value)? deskTopDrower,
+    TResult Function(_logOut value)? logOut,
+    TResult Function(_connectingToWebsonket value)? connectingToWebsonket,
+    TResult Function(_sentingMassage value)? sentingMassage,
+    required TResult orElse(),
+  }) {
+    if (sentingMassage != null) {
+      return sentingMassage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _sentingMassage implements HomeEvent {
+  const factory _sentingMassage({required final String text}) =
+      _$sentingMassageImpl;
+
+  String get text;
+  @JsonKey(ignore: true)
+  _$$sentingMassageImplCopyWith<_$sentingMassageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   bool get isExpanded => throw _privateConstructorUsedError;
+  List<String> get messages => throw _privateConstructorUsedError;
+  String get statusMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -322,7 +628,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({bool isExpanded});
+  $Res call({bool isExpanded, List<String> messages, String statusMessage});
 }
 
 /// @nodoc
@@ -339,12 +645,22 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @override
   $Res call({
     Object? isExpanded = null,
+    Object? messages = null,
+    Object? statusMessage = null,
   }) {
     return _then(_value.copyWith(
       isExpanded: null == isExpanded
           ? _value.isExpanded
           : isExpanded // ignore: cast_nullable_to_non_nullable
               as bool,
+      messages: null == messages
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      statusMessage: null == statusMessage
+          ? _value.statusMessage
+          : statusMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -357,7 +673,7 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isExpanded});
+  $Res call({bool isExpanded, List<String> messages, String statusMessage});
 }
 
 /// @nodoc
@@ -372,12 +688,22 @@ class __$$HomeStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isExpanded = null,
+    Object? messages = null,
+    Object? statusMessage = null,
   }) {
     return _then(_$HomeStateImpl(
       isExpanded: null == isExpanded
           ? _value.isExpanded
           : isExpanded // ignore: cast_nullable_to_non_nullable
               as bool,
+      messages: null == messages
+          ? _value._messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      statusMessage: null == statusMessage
+          ? _value.statusMessage
+          : statusMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -385,14 +711,28 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeStateImpl implements _HomeState {
-  const _$HomeStateImpl({required this.isExpanded});
+  const _$HomeStateImpl(
+      {required this.isExpanded,
+      required final List<String> messages,
+      required this.statusMessage})
+      : _messages = messages;
 
   @override
   final bool isExpanded;
+  final List<String> _messages;
+  @override
+  List<String> get messages {
+    if (_messages is EqualUnmodifiableListView) return _messages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_messages);
+  }
+
+  @override
+  final String statusMessage;
 
   @override
   String toString() {
-    return 'HomeState(isExpanded: $isExpanded)';
+    return 'HomeState(isExpanded: $isExpanded, messages: $messages, statusMessage: $statusMessage)';
   }
 
   @override
@@ -401,11 +741,15 @@ class _$HomeStateImpl implements _HomeState {
         (other.runtimeType == runtimeType &&
             other is _$HomeStateImpl &&
             (identical(other.isExpanded, isExpanded) ||
-                other.isExpanded == isExpanded));
+                other.isExpanded == isExpanded) &&
+            const DeepCollectionEquality().equals(other._messages, _messages) &&
+            (identical(other.statusMessage, statusMessage) ||
+                other.statusMessage == statusMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isExpanded);
+  int get hashCode => Object.hash(runtimeType, isExpanded,
+      const DeepCollectionEquality().hash(_messages), statusMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -415,10 +759,17 @@ class _$HomeStateImpl implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({required final bool isExpanded}) = _$HomeStateImpl;
+  const factory _HomeState(
+      {required final bool isExpanded,
+      required final List<String> messages,
+      required final String statusMessage}) = _$HomeStateImpl;
 
   @override
   bool get isExpanded;
+  @override
+  List<String> get messages;
+  @override
+  String get statusMessage;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

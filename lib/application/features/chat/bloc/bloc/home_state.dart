@@ -4,9 +4,11 @@ part of 'home_bloc.dart';
 class HomeState with _$HomeState {
   const factory HomeState({
     required bool isExpanded,
+    required List<String> messages,
+    required String statusMessage,
   }) = _HomeState;
 
-  factory HomeState.initial(){
-    return const HomeState(isExpanded: true);
+  factory HomeState.initial() {
+    return const HomeState(isExpanded: true, messages: [], statusMessage: '');
   }
 }

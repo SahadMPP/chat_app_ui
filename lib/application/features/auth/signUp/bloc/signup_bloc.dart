@@ -14,31 +14,29 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   SignupBloc() : super(SignupState.initial()) {
     on<_registerUser>((event, emit) async {
       // add data to hive
+
+
+
       final value = User(
           email: event.emalConm,
           name: event.nameConm,
           password: event.passConm);
+
+ ////////////////////////////////////////////         
       final userDB = await Hive.openBox<User>('user_db');
       final id = await userDB.add(value);
       final user = userDB.get(id);
       userDB.put(id,
           User(name: user!.name, email: user.email, password: user.password));
       userList.value.add(user);
-    
-      // add data to hive
-
-      // show success massage
+//////////////////////////////////////////////
       // ignore: use_build_context_synchronously
-      // ScaffoldMessenger.of(event.context).showSnackBar(const SnackBar(
-      //   content: SnackBar(
-      //     content: Text("User successfuly registed"),
-      //     backgroundColor: Colors.green,
-      //     margin: EdgeInsets.all(12),
-      //     behavior: SnackBarBehavior.floating,
-      //   ),
-      // ));
-
-      // // navigate to sign in page
+        ScaffoldMessenger.of(event.context).showSnackBar(const SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.green,
+          margin: EdgeInsets.all(15),
+          content: Text('User registed'),
+        ));
       // ignore: use_build_context_synchronously
       Navigator.of(event.context).pop();
     });
