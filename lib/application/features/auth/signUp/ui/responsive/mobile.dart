@@ -67,6 +67,7 @@ class _SignUpMobPageState extends State<SignUpMobPage> {
                         hintText: "Enter Name",
                         isPassword: false),
                     CostomTextField(
+                      isEmail: true,
                         validatorText: 'Enter your email',
                         controller: emailcontroller,
                         hintText: "Enter Email",

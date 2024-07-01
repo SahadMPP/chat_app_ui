@@ -59,6 +59,7 @@ class _SignINMobPageState extends State<SignINMobPage> {
                 child: Column(
                   children: [
                     CostomTextField(
+                      isEmail: true,
                       hintText: "Enter Email",
                       isPassword: false,
                       controller: namecontroller,

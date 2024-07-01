@@ -1,4 +1,5 @@
-import 'package:chat_app_ai/application/features/chat/ui/responsive/desktop.dart';
+import 'package:chat_app_ai/application/features/chat/widgets/chat_box_home.dart';
+import 'package:chat_app_ai/application/features/chat/widgets/model_drower.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
