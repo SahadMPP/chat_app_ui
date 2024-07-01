@@ -73,31 +73,81 @@ class ChatBoxHome extends StatelessWidget {
         children: [
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              return Expanded(child: ListView.builder(
+              return Expanded(
+                  child: ListView.builder(
                 itemCount: state.messages.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    padding: const EdgeInsets.all(12),
-                    margin: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.person),
-                        const SizedBox(width: 5),
-                        Text(
-                          state.messages[index],
-                          style: GoogleFonts.roboto(
-                              textStyle: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 12,
-                          )),
+                  if (state.messages.isEmpty || state.messages.length == 1) {
+                    return Center(
+                      child: Container(
+                        padding: const EdgeInsets.all(22),
+                       height: 150,
+                       width: 150,
+                        child: Image.asset(
+                          "asset/images/communication_13685620-removebg-preview.png",
+                          height: 200,
                         ),
-                      ],
-                    ),
-                  );
+                      ),
+                    );
+                  } else {
+                    return Container(
+                      padding: const EdgeInsets.all(12),
+                      margin: const EdgeInsets.all(8),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: index % 2 == 0 ? const Color.fromARGB(255, 79, 33, 243):Colors.white,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: index % 2 == 0
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    state.messages[index],
+                                    style: GoogleFonts.roboto(
+                                        textStyle: TextStyle(
+                                      color: index % 2 == 0 ?  Colors.white:Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
+                                    )),
+                                  ),
+                                ),
+                                const SizedBox(width: 5),
+                                const CircleAvatar(
+                                  radius: 15,
+                                  backgroundImage: AssetImage(
+                                      "asset/images/robot.png"),
+                                ),
+                              ],
+                            )
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const CircleAvatar(
+                                  radius: 15,
+                                  backgroundImage: AssetImage(
+                                      "asset/images/icons8-person-94.png"),
+                                ),
+                                const SizedBox(width: 5),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    state.messages[index],
+                                    style: GoogleFonts.roboto(
+                                        textStyle: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
+                                    )),
+                                  ),
+                                ),
+                              ],
+                            ),
+                    );
+                  }
                 },
               ));
             },
@@ -115,7 +165,8 @@ class ChatBoxHome extends StatelessWidget {
                   child: TextField(
                     onSubmitted: (value) {
                       if (controller.text.isNotEmpty) {
-                        context.read<HomeBloc>().add(HomeEvent.sentingMassage(text: controller.text));
+                        context.read<HomeBloc>().add(
+                            HomeEvent.sentingMassage(text: controller.text));
                         controller.clear();
                       }
                     },
@@ -134,9 +185,9 @@ class ChatBoxHome extends StatelessWidget {
                 InkWell(
                     onTap: () {
                       if (controller.text.isNotEmpty) {
-                        context.read<HomeBloc>().add(HomeEvent.sentingMassage(text: controller.text));
+                        context.read<HomeBloc>().add(
+                            HomeEvent.sentingMassage(text: controller.text));
                         controller.clear();
-
                       }
                     },
                     child: const Padding(
@@ -333,6 +384,8 @@ class ModelDrowerDesk extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8)))),
                 onPressed: () {
                   // add value to list
+
+                  
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -376,7 +429,7 @@ class HomeHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Axon",
+              "CHATY",
               style: GoogleFonts.anton(
                   textStyle: const TextStyle(
                 letterSpacing: 1.5,
@@ -387,7 +440,8 @@ class HomeHeader extends StatelessWidget {
             ),
             const CircleAvatar(
               radius: 18,
-              backgroundColor: Colors.blue,
+              backgroundImage: AssetImage("asset/images/icons8-person-94.png"),
+              backgroundColor: Colors.white,
             ),
           ],
         ),
@@ -395,4 +449,3 @@ class HomeHeader extends StatelessWidget {
     ));
   }
 }
-

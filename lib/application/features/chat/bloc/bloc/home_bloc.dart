@@ -27,6 +27,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // ignore: invalid_use_of_visible_for_testing_member
       emit(state.copyWith(messages: newList));
     }
+
     WebSocketChannel? channel;
     on<_logOut>((event, emit) async {
       SharedPreferences sharedPreferences =
@@ -68,6 +69,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     on<_sentingMassage>((event, emit) {
       // ChatUseCase().sendingMessageToWebsocket(event.text);
+      List<String> newList = List.from(state.messages)..add(event.text);
+      emit(state.copyWith(messages: newList));
       channel!.sink.add(event.text);
     });
   }

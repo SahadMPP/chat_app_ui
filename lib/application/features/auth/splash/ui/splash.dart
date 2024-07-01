@@ -7,9 +7,13 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   context.read<SplashBloc>().add(SplashEvent.pageDirection(context: context));
-    return   Scaffold(
-      body: Center(child: Container(height: 100,width: 100,color: Colors.red[100],)),
+     context.read<SplashBloc>().add(SplashEvent.pageDirection(context: context));
+    return const Scaffold(
+      body: Center(
+        child: Image(
+            image: AssetImage(
+                'asset/images/Annotation_2024-07-01_111628-removebg-preview.png'),height: 150,),
+      ),
     );
   }
 }
