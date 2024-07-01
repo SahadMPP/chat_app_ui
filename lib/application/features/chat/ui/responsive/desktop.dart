@@ -81,8 +81,8 @@ class ChatBoxHome extends StatelessWidget {
                     return Center(
                       child: Container(
                         padding: const EdgeInsets.all(22),
-                       height: 150,
-                       width: 150,
+                        height: 150,
+                        width: 150,
                         child: Image.asset(
                           "asset/images/communication_13685620-removebg-preview.png",
                           height: 200,
@@ -95,7 +95,9 @@ class ChatBoxHome extends StatelessWidget {
                       margin: const EdgeInsets.all(8),
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          color: index % 2 == 0 ? const Color.fromARGB(255, 79, 33, 243):Colors.white,
+                          color: index % 2 == 0
+                              ? const Color.fromARGB(255, 79, 33, 243)
+                              : Colors.white,
                           borderRadius: BorderRadius.circular(8)),
                       child: index % 2 == 0
                           ? Row(
@@ -108,7 +110,9 @@ class ChatBoxHome extends StatelessWidget {
                                     state.messages[index],
                                     style: GoogleFonts.roboto(
                                         textStyle: TextStyle(
-                                      color: index % 2 == 0 ?  Colors.white:Colors.black,
+                                      color: index % 2 == 0
+                                          ? Colors.white
+                                          : Colors.black,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 12,
                                     )),
@@ -117,8 +121,8 @@ class ChatBoxHome extends StatelessWidget {
                                 const SizedBox(width: 5),
                                 const CircleAvatar(
                                   radius: 15,
-                                  backgroundImage: AssetImage(
-                                      "asset/images/robot.png"),
+                                  backgroundImage:
+                                      AssetImage("asset/images/robot.png"),
                                 ),
                               ],
                             )
@@ -384,8 +388,32 @@ class ModelDrowerDesk extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8)))),
                 onPressed: () {
                   // add value to list
-
-                  
+                  showDialog<void>(
+                    context: context,
+                    barrierDismissible: false, // user must tap button!
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('AlertDialog Title'),
+                        content: const SingleChildScrollView(
+                          child: ListBody(
+                            children: <Widget>[
+                              Text('This is a demo alert dialog.'),
+                              Text(
+                                  'Would you like to approve of this message?'),
+                            ],
+                          ),
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            child: const Text('Approve'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -438,10 +466,40 @@ class HomeHeader extends StatelessWidget {
                 fontSize: 20,
               )),
             ),
-            const CircleAvatar(
-              radius: 18,
-              backgroundImage: AssetImage("asset/images/icons8-person-94.png"),
-              backgroundColor: Colors.white,
+            InkWell(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('Are you sure to LogOut'),
+                      
+                      actions: <Widget>[
+                        TextButton(
+                          child: const Text('close'),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        TextButton(
+                          child: const Text('Yes'),
+                          onPressed: () {
+                           context.read<HomeBloc>().add(HomeEvent.logOut(context: context));
+                          },
+                        ),
+                        
+                      ],
+                    );
+                  },
+                );
+              },
+              child: const CircleAvatar(
+                radius: 18,
+                backgroundImage:
+                    AssetImage("asset/images/icons8-person-94.png"),
+                backgroundColor: Colors.white,
+              ),
             ),
           ],
         ),
