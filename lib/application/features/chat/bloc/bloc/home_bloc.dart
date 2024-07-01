@@ -1,8 +1,11 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+import 'package:chat_app_ai/application/core/hive_store/store.dart';
 import 'package:chat_app_ai/application/features/auth/signIn/ui/sign_in.dart';
+import 'package:chat_app_ai/domain/entities/massage_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/io.dart';
@@ -72,6 +75,40 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       List<String> newList = List.from(state.messages)..add(event.text);
       emit(state.copyWith(messages: newList));
       channel!.sink.add(event.text);
+    });
+
+    on<_addignModels>((event, emit) async {
+      try {
+        final massageDB = await Hive.openBox<MessageModel>('message_db');
+        final id = await massageDB.add(event.massage);
+        final value = massageDB.get(id);
+        massageDB.put(
+            id,
+            MessageModel(
+                messages: value!.messages, title: value.title, id: id));
+        modelList.value.add(value);
+      } catch (e) {
+        throw Exception("User registering is failed");
+      }
+    });
+
+    on<_gettingModel>((event, emit) async {
+      List<MessageModel> list = [];
+      final massageDB = await Hive.openBox<MessageModel>('message_db');
+      for (var i = 0; i < massageDB.length; i++) {
+        list.add(massageDB.getAt(i)!);
+      }
+      emit(state.copyWith(list: list));
+    });
+
+    on<_deleteModel>((event, emit) async {
+      List<MessageModel> list = [];
+      final massageDB = await Hive.openBox<MessageModel>('message_db');
+      massageDB.delete(event.massage.id);
+      for (var i = 0; i < massageDB.length; i++) {
+        list.add(massageDB.getAt(i)!);
+      }
+      emit(state.copyWith(list: list));
     });
   }
 }

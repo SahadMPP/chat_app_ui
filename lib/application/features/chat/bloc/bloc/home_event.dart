@@ -13,4 +13,18 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.sentingMassage({
     required String text,
   }) = _sentingMassage;
+
+
+  const factory HomeEvent.addignModels({
+    required MessageModel massage,
+  }) = _addignModels;
+
+  const factory HomeEvent.gettingModel() = _gettingModel;
+
+  const factory HomeEvent.deleteModel({
+    required MessageModel massage,
+  }) = _deleteModel;
+  
+  
+  
 }

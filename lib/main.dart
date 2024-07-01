@@ -3,6 +3,7 @@ import 'package:chat_app_ai/application/features/auth/signUp/bloc/signup_bloc.da
 import 'package:chat_app_ai/application/features/auth/splash/bloc/bloc/splash_bloc.dart';
 import 'package:chat_app_ai/application/features/auth/splash/ui/splash.dart';
 import 'package:chat_app_ai/application/features/chat/bloc/bloc/home_bloc.dart';
+import 'package:chat_app_ai/domain/entities/massage_entity.dart';
 import 'package:chat_app_ai/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +13,9 @@ void main() async {
   await Hive.initFlutter();
   if (!Hive.isAdapterRegistered(UserAdapter().typeId)) {
     Hive.registerAdapter(UserAdapter());
+  }
+  if (!Hive.isAdapterRegistered(MessageModelAdapter().typeId)) {
+    Hive.registerAdapter(MessageModelAdapter());
   }
   runApp(const MyApp());
 }
@@ -35,4 +39,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

@@ -6,9 +6,10 @@ class HomeState with _$HomeState {
     required bool isExpanded,
     required List<String> messages,
     required String statusMessage,
+    required List<MessageModel> list,
   }) = _HomeState;
 
   factory HomeState.initial() {
-    return const HomeState(isExpanded: true, messages: [], statusMessage: '');
+    return const HomeState(isExpanded: true, messages: [], statusMessage: '',list: []);
   }
 }
