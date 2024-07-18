@@ -13,7 +13,8 @@ class ChatBoxHome extends StatelessWidget {
     TextEditingController controller = TextEditingController();
     context.read<HomeBloc>().add(const HomeEvent.connectingToWebsonket());
     return Container(
-      color: Colors.grey[400],
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(12)),
       child: Column(
         children: [
           BlocBuilder<HomeBloc, HomeState>(
@@ -23,17 +24,7 @@ class ChatBoxHome extends StatelessWidget {
                 itemCount: state.messages.length,
                 itemBuilder: (context, index) {
                   if (state.messages.isEmpty || state.messages.length == 1) {
-                    return Center(
-                      child: Container(
-                        padding: const EdgeInsets.all(22),
-                        height: 150,
-                        width: 150,
-                        child: Image.asset(
-                          "asset/images/communication_13685620-removebg-preview.png",
-                          height: 200,
-                        ),
-                      ),
-                    );
+                    return const EmtyField();
                   } else {
                     return Container(
                       padding: const EdgeInsets.all(12),
@@ -104,7 +95,7 @@ class ChatBoxHome extends StatelessWidget {
           Container(
             margin: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(5)),
+                color: Colors.grey[300], borderRadius: BorderRadius.circular(5)),
             height: 50,
             child: Row(
               children: [
@@ -156,3 +147,110 @@ class ChatBoxHome extends StatelessWidget {
   }
 }
 
+class EmtyField extends StatelessWidget {
+  const EmtyField({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const SizedBox(height: 30),
+        const CircleAvatar(
+          radius: 30,
+        ),
+        const SizedBox(height: 20),
+        Text(
+          'Experience seamless chatbot interaction with Wavee.AI',
+          style: GoogleFonts.roboto(
+              textStyle: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          )),
+        ),
+        const SizedBox(height: 10),
+        ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 400,
+          ),
+          child: Text(
+            "Get instent answers,helpful recomedation and engaging conversation with our advaced echo bot.",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.roboto(
+                textStyle: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400)),
+          ),
+        ),
+        const SizedBox(height: 40),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            EmptyFiledBox(),
+            EmptyFiledBox(),
+            EmptyFiledBox(),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class EmptyFiledBox extends StatelessWidget {
+  const EmptyFiledBox({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      height: 200,
+      width: 200,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.grey[300]!, width: 1)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const Icon(Icons.abc),
+          Text(
+            'Capabilities',
+            style: GoogleFonts.roboto(
+                textStyle: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )),
+          ),
+          Text(
+            "See what chat offers a wide range of capabilities",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.roboto(
+                textStyle: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400)),
+          ),
+          const SizedBox(height: 5),
+          ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor: const WidgetStatePropertyAll(Colors.white),
+                  shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.grey[300]!),
+                      borderRadius: BorderRadius.circular(30)))),
+              onPressed: () {},
+              child: Text(
+                "Learn more",
+                style: GoogleFonts.roboto(
+                    textStyle:
+                        TextStyle(color: Colors.grey[300]!, fontSize: 14)),
+              ))
+        ],
+      ),
+    );
+  }
+}

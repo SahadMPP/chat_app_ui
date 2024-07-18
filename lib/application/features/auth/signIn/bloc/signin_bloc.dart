@@ -20,7 +20,6 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
     on<_homePageNavigation>((event, emit) async {
       Future<bool> isRegisted() async {
         final userDB = await AuthUseCase().gettingUsersDatafromDatabase();
-
         for (var i = 0; i < userDB.length; i++) {
           final currentUser = userDB.getAt(i);
           if (currentUser!.email == event.email &&

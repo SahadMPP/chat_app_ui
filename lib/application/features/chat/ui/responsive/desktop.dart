@@ -1,8 +1,6 @@
 import 'package:chat_app_ai/application/features/chat/widgets/chat_box_home.dart';
-import 'package:chat_app_ai/application/features/chat/widgets/header_ui.dart';
 import 'package:chat_app_ai/application/features/chat/widgets/model_drower.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeDeskPage extends StatelessWidget {
   final int expandedWidth;
@@ -12,50 +10,37 @@ class HomeDeskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const HomeHeader(),
-          Expanded(
-              flex: 10,
-              child: Row(
-                children: [
-                  const ModelDrowerDesk(),
-                  // const ChatDrowerDesk(),
-                  Expanded(
-                      flex: expandedWidth,
-                      child: Column(
-                        children: [
-                          Expanded(
-                              child: Container(
-                            color: Colors.white,
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "What are AI Models",
-                                    style: GoogleFonts.lilitaOne(
-                                        textStyle: const TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                    )),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )),
-                          const Expanded(
-                            flex: 12,
-                            child: ChatBoxHome(),
-                          ),
-                        ],
-                      )),
-                ],
-              )),
-        ],
+      body: Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                tileMode: TileMode.mirror,
+                end: Alignment.topCenter,
+                colors: [
+              Color.fromARGB(255, 4, 7, 48),
+              Color.fromARGB(255, 238, 5, 148),
+              Color.fromARGB(255, 238, 5, 148),
+              Color.fromARGB(255, 4, 7, 48),
+            ])),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: [
+              // const HomeHeader(),
+              Expanded(
+                  flex: 10,
+                  child: Row(
+                    children: [
+                      const ModelDrowerDesk(),
+                      // const ChatDrowerDesk(),
+                      Expanded(
+                          flex: expandedWidth,
+                          child: const ChatBoxHome()),
+                    ],
+                  )),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
-

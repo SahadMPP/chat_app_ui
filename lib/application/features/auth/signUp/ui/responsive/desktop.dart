@@ -9,15 +9,20 @@ class SignUpDeskPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(image:AssetImage("asset/images/vecteezy_artificial-intelligence-chatbot-assistance-background_21835780.jpg"),fit: BoxFit.cover )
-        ),
+            image: DecorationImage(
+                image: AssetImage(
+                    "asset/images/vecteezy_artificial-intelligence-chatbot-assistance-background_21835780.jpg"),
+                fit: BoxFit.cover)),
         child: Center(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height * .8,
-              width: MediaQuery.of(context).size.width * .3,
-              child: const SignUpMobPage(),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width * .3,
+                child: const SignUpMobPage(),
+              ),
             ),
           ),
         ),

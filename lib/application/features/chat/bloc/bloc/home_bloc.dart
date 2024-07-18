@@ -88,7 +88,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
                 messages: value!.messages, title: value.title, id: id));
         modelList.value.add(value);
       } catch (e) {
-        throw Exception("User registering is failed");
+        throw Exception("User registering is failed >>$e");
       }
     });
 
